@@ -6,7 +6,7 @@ namespace Bakery.Models
         public int FlavorId { get; set; }
         public int SweetId { get; set; }
 
-        public Flavors flavor { get; set; }
-        public Sweets sweet { get; set; }
+        public Flavor flavor { get; set; }
+        public Sweet sweet { get; set; }
     }
 }
