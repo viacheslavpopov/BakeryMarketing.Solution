@@ -39,7 +39,7 @@ img {
     text-align: center;
 }
 
-#footer {
+div#footer {
     background-color: #f2efe9;
     text-align: center;
     letter-spacing: 5px;
@@ -48,4 +48,24 @@ img {
     left: 0px;
     width: 100%;
     padding: 8px;
+}
+
+.navbar-custom {
+    background-color: #524D59;
+}
+
+/* changes the brand and text color */
+.navbar-custom .navbar-brand, .navbar-custom .navbar-text {
+    color: #F2EFE9;
+}
+
+/* changes the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: #F2EFE9;
+}
+
+/* changes the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link, .navbar-custom .nav-item:hover .nav-link {
+    color: #8C7974;
+    letter-spacing: 2px;
 }
