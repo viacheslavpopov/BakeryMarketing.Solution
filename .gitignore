@@ -3,3 +3,4 @@ bin/
 obj/
 appsettings*
 .DS_Store
+Properties/
