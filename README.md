@@ -17,7 +17,12 @@
 
 ## Description
 
-Incoming...
+After building a [console app](https://github.com/dani-t-codes/PierresBakery.Solution) for orders at Pierre's Bakery, and a [follow-up](https://github.com/dani-t-codes/BakeryMVC.Solution) project to track his orders & vendors, Pierre is back for more. This round, Pierre would like an application with user authentication and a many-to-many relationship between his sweet and savory treats. This application will have the follow MVP features for the client:
+
+- User authentication with log in/log out functionality.
+- All users will have read functionality, but only logged in customers can create, update, and delete items.
+- `Treat`s and `Flavor`s will have a many-to-many relationship. A treat can have many flavors (e.g. sweet, savory, spicy, creamy), and a flavor can have many treats (e.g. sweet --> chocolate croissants, cheesecake, etc).
+- The user will be initially navigated to a splash page listing all treats and flavors that can be individually clicked on to see further details.
 
 ![SQL Design Plan](LINKTODO "Many-to-many Relationship Schema for Flavors & Sweets")
 
