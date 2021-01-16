@@ -2,3 +2,25 @@
     Layout = "_Layout";
 }
 
+@using Bakery.Models;
+@using System.Security.Claims
+@model IEnumerable<Bakery.Models.Flavor>
+
+<h2>Flavors</h2>
+<hr>
+@if (Model.Any())
+{
+    <ul>
+    @foreach (Flavor flavor in Model)
+    {
+        <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", new { id = flavor.FlavorId })</li>
+    }
+    </ul>
+}
+else
+{
+    <h3>There are no flavors added yet.</h3>
+}
+
+<p>@Html.ActionLink("Add a New Flavor", "Create")</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
