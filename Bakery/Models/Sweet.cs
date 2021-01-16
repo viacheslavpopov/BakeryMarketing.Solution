@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 namespace Bakery.Models
 {
@@ -10,6 +11,7 @@ namespace Bakery.Models
         }
         public int SweetId { get; set; }
         public string SweetName { get; set; }
+        public virtual ApplicationUser User { get; set; }
         public virtual ICollection<FlavorSweet> Flavors { get; set; }
     }
 }
