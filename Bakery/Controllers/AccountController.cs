@@ -29,9 +29,9 @@ namespace Bakery.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Register (RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            var user = new ApplicationUser { UserName = model.Email };
+            var user = new ApplicationUser() { UserName = model.Email };
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
@@ -49,7 +49,7 @@ namespace Bakery.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Login (LoginViewModel model)
+        public async Task<ActionResult> Login(LoginViewModel model)
         {
             Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
             if (result.Succeeded)
