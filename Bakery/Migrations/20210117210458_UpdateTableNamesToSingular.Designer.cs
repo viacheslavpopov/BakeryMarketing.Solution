@@ -3,14 +3,16 @@ using System;
 using Bakery.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Bakery.Migrations
 {
     [DbContext(typeof(BakeryContext))]
-    partial class BakeryContextModelSnapshot : ModelSnapshot
+    [Migration("20210117210458_UpdateTableNamesToSingular")]
+    partial class UpdateTableNamesToSingular
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -233,11 +235,11 @@ namespace Bakery.Migrations
 
             modelBuilder.Entity("Bakery.Models.FlavorSweet", b =>
                 {
-                    b.HasOne("Bakery.Models.Flavor", "Flavor")
+                    b.HasOne("Bakery.Models.Flavor", "flavor")
                         .WithMany("Sweets")
                         .HasForeignKey("FlavorId");
 
-                    b.HasOne("Bakery.Models.Sweet", "Sweet")
+                    b.HasOne("Bakery.Models.Sweet", "sweet")
                         .WithMany("Flavors")
                         .HasForeignKey("SweetId");
                 });
