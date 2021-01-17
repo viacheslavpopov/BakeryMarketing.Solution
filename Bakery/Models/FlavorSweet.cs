@@ -6,7 +6,7 @@ namespace Bakery.Models
         public int? FlavorId { get; set; }
         public int? SweetId { get; set; }
 
-        public virtual Flavor flavor { get; set; }
-        public virtual Sweet sweet { get; set; }
+        public virtual Flavor Flavor { get; set; }
+        public virtual Sweet Sweet { get; set; }
     }
 }
