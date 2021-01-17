@@ -24,7 +24,7 @@ After building a [console app](https://github.com/dani-t-codes/PierresBakery.Sol
 - `Treat`s and `Flavor`s will have a many-to-many relationship. A treat can have many flavors (e.g. sweet, savory, spicy, creamy), and a flavor can have many treats (e.g. sweet --> chocolate croissants, cheesecake, etc).
 - The user will be initially navigated to a splash page listing all treats and flavors that can be individually clicked on to see further details.
 
-![SQL Design Plan](Bakery/wwwroot/img/SQL_Design_schema.png "Many-to-many Relationship Schema for Flavors & Sweets")
+![SQL Design Plan](/Bakery/wwwroot/img/SQL_Design_schema.png "Many-to-many Relationship Schema for Flavors & Sweets")
 
 ---
 
