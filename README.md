@@ -11,7 +11,8 @@
 </div>
 
 #### Preview
-![Splash Page](~/img/Splash_Page.png "Screenshot of website splash page")
+[![Splash-Page.png](https://i.postimg.cc/T1k9NHCd/Splash-Page.png)](https://postimg.cc/QKT1Hm2w)
+
 ---
 
 ## Description
