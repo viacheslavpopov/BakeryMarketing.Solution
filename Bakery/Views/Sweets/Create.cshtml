@@ -1,0 +1,16 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Bakery.Models.Sweet
+
+<h3>Add a new sweet</h3>
+<hr/>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.SweetName)
+    @Html.TextBoxFor(model => model.SweetName)
+    <input type="submit" value="Add new sweet" />
+}
+
+<h3>@Html.ActionLink("Show all sweets", "Index")</h3>

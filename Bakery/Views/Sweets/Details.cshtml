@@ -1,0 +1,33 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Bakery.Models.Sweet
+
+<h2>Sweet Details</h2>
+<hr />
+
+<h3>@Html.DisplayNameFor(model => model.SweetName):</h3>
+<h4>@Html.DisplayFor(model => model.SweetName)</h4>
+
+@if(@Model.Flavors.Count == 0)
+{
+    <p>This sweet does not have any corresponding flavors.</p>
+    <hr />
+}
+else
+{
+    <h3>Correponding Flavors:</h3>
+    <ul>
+        @foreach(var join in Model.Flavors)
+        {
+            <li><h4>@join.Flavor.FlavorName</h4></li>
+            @using (Html.BeginForm("DeleteFlavor", "Flavors"))
+            {
+                @Html.Hidden("joinId", @join.FlavorSweetId)
+                <input type="submit" value="Delete"/>
+            }
+        }
+    </ul>
+}
+<h3>@Html.ActionLink("Sweets Home", "Index") || @Html.ActionLink("Edit Sweet", "Edit", new { id = Model.SweetId }) || @Html.ActionLink("Add a Corresponding Flavor", "Create", "Flavors") || @Html.ActionLink("Delete Sweet", "Delete", new { id = Model.SweetId })</h3>
