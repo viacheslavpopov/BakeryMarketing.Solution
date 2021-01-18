@@ -88,5 +88,82 @@ namespace Bakery.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [Authorize]
+        public async Task<ActionResult> AddSweet(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.Name)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            Flavor thisFlavor = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).FirstOrDefault(flavors => flavors.FlavorId == id);
+            if (thisFlavor == null)
+            {
+                return RedirectToAction("Details", new { id = id});
+            }
+            ViewBag.SweetId = new SelectList(_db.Sweets, "SweetId", "SweetName");
+            return View(thisFlavor);
+        }
+
+        [HttpPost]
+        public ActionResult AddSweet(Flavor flavor, int SweetId)
+        {
+            if (SweetId != 0)
+            {
+                _db.FlavorSweet.Add(new FlavorSweet() { SweetId = SweetId, FlavorId = flavor.FlavorId });
+            }
+            _db.SaveChanges();
+            return RedirectToAction("Details", new { id = flavor.FlavorId });
+        }
+
+        [Authorize]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            Flavor thisFlavor = _db.Flavors
+                .Where(entry => entry.User.Id == currentUser.Id)
+                .Include(flavor => flavor.Sweets)
+                .ThenInclude(join => join.Sweet)
+                .FirstOrDefault(flavors => flavors.FlavorId == id);
+            if (thisFlavor == null)
+            {
+                return RedirectToAction("Details", new { id = id});
+            }
+            return View(thisFlavor);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id, int joinId)
+        {
+            if (joinId != 0)
+            {
+                var joinEntry = _db.FlavorSweet.FirstOrDefault(entry => entry.FlavorSweetId == joinId);
+                _db.FlavorSweet.Remove(joinEntry);
+                var thisFlavor = _db.Flavors
+                    .Include(flavor => flavor.Sweets)
+                    .ThenInclude(join => join.Sweet)
+                    .FirstOrDefault(flavors => flavors.FlavorId == id);
+                _db.Flavors.Remove(thisFlavor);
+                _db.SaveChanges();
+            }
+            else
+            {
+                var thisFlavor = _db.Flavors
+                    .Include(flavor => flavor.Sweets)
+                    .ThenInclude(join => join.Sweet)
+                    .FirstOrDefault(flavors => flavors.FlavorId == id);
+                _db.Flavors.Remove(thisFlavor);
+                _db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult DeleteSweet(int joinId)
+        {
+            var joinEntry = _db.FlavorSweet.FirstOrDefault(entry => entry.FlavorSweetId == joinId);
+            _db.FlavorSweet.Remove(joinEntry);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

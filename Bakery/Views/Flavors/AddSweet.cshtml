@@ -1,0 +1,20 @@
+@{
+    Layout ="_Layout";
+}
+
+@using Bakery.Models
+@model Bakery.Models.Flavor
+
+<h2>Add a Sweet to a Corresponding Flavor: @Html.DisplayFor(model => model.FlavorName)</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.FlavorId)
+
+    @Html.Label("Select Sweet")
+    @Html.DropDownList("SweetId", "- none -")
+
+    <input type="submit" value="Save">
+}
+
+<h3>@Html.ActionLink("Back to flavor details", "Details", new { id = Model.FlavorId })</h3>
