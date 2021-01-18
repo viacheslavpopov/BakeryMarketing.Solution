@@ -2,7 +2,6 @@
     Layout ="_Layout";
 }
 
-@using Bakery.Models
 @model Bakery.Models.Sweet
 
 <h2>Add a Flavor to a Corresponding Sweet: @Html.DisplayFor(model => model.SweetName)</h2>
@@ -11,7 +10,7 @@
 {
     @Html.HiddenFor(model => model.SweetId)
 
-    @Html.Label("Select Flavor")
+    @Html.Label("Select Flavor:")
     @Html.DropDownList("FlavorId", "- none -")
 
     <input type="submit" value="Save">

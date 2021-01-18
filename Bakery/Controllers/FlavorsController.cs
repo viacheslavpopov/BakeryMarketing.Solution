@@ -92,7 +92,7 @@ namespace Bakery.Controllers
         [Authorize]
         public async Task<ActionResult> AddSweet(int id)
         {
-            var userId = this.User.FindFirst(ClaimTypes.Name)?.Value;
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var currentUser = await _userManager.FindByIdAsync(userId);
             Flavor thisFlavor = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).FirstOrDefault(flavors => flavors.FlavorId == id);
             if (thisFlavor == null)
@@ -158,7 +158,7 @@ namespace Bakery.Controllers
         }
 
         [HttpPost]
-        public ActionResult DeleteSweet(int joinId)
+        public ActionResult DeleteJoin(int joinId)
         {
             var joinEntry = _db.FlavorSweet.FirstOrDefault(entry => entry.FlavorSweetId == joinId);
             _db.FlavorSweet.Remove(joinEntry);
