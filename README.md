@@ -11,9 +11,7 @@
 </div>
 
 #### Preview
-![Splash Page](LINKTODO "Screenshot of website splash page")
-
-![Loaves test](/Bakery/wwwroot/img/loaves.jpg)
+![Splash Page](/Bakery/wwwroot/img/Splash_Page.png "Screenshot of website splash page")
 
 ---
 
