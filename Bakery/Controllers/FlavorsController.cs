@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using Bakery.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -62,6 +61,32 @@ namespace Bakery.Controllers
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             ViewBag.IsCurrentUser = userId != null ? userId == thisFlavor.User.Id : false;
             return View(thisFlavor);
+        }
+
+        [Authorize]
+        public async Task <ActionResult> Edit(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            var thisFlavor = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).FirstOrDefault(flavors => flavors.FlavorId == id);
+            if (thisFlavor == null)
+            {
+                return RedirectToAction("Details", new { id = id});
+            }
+            ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
+            return View(thisFlavor);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Flavor flavor, int SweetId)
+        {
+            if (SweetId != 0)
+            {
+                _db.FlavorSweet.Add(new FlavorSweet() { SweetId = SweetId, FlavorId = flavor.FlavorId });
+            }
+            _db.Entry(flavor).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
