@@ -13,6 +13,8 @@
 #### Preview
 ![Splash Page](LINKTODO "Screenshot of website splash page")
 
+![Loaves test](/Bakery/wwwroot/img/loaves.jpg)
+
 ---
 
 ## Description
