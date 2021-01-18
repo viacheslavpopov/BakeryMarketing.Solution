@@ -11,7 +11,7 @@
 </div>
 
 #### Preview
-![Splash Page](~/img/Splash_Page.png "Screenshot of website splash page")
+![Splash Page](Bakery/wwwroot/img/Splash_Page.png "Screenshot of website splash page")
 ---
 
 ## Description
