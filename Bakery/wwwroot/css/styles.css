@@ -70,7 +70,27 @@ div#footer {
     letter-spacing: 2px;
 }
 
-.carousel-inner img {
-    width: 100%;
-    height: 100%;
+
+.carousel .carousel-inner {
+    height: 200px;
+    padding-bottom: 20px;
+}
+
+.carousel-item img {
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    min-height: 300px;
+}
+
+.card .nav-link {
+    margin: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #403a3f;
+}
+
+.card .nav-link:hover {
+    color: #524D59;
 }

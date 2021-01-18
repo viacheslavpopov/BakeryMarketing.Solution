@@ -1,16 +1,16 @@
 $(document).ready(function(){
     // Activate Carousel
-    $('.carousel').carousel({
+    $("#homeCarousel").carousel({
         interval: 5000
     })
     // Enable Carousel Indicators
-    $(".item1").click(function(){
+    $("#item1").click(function(){
         $("#homeCarousel").carousel(0);
     });
-    $(".item2").click(function(){
+    $("#item2").click(function(){
         $("#homeCarousel").carousel(1);
     });
-    $(".item3").click(function(){
+    $("#item3").click(function(){
         $("#homeCarousel").carousel(2);
     });
     // Enable Carousel Controls

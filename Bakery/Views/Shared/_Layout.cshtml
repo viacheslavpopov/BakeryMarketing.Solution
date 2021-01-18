@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <title>Pierre's Bakery</title>
-        <script src="../../wwwroot/js/js/main.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+        <script src="http://ajax.microsoft.com/ajax/jquery/jquery-3.4.1.js" type="text/javascript" SameSite="None" Secure></script>
+        <script type="text/javascript" src="~/js/main.js"></script>
         <link rel='stylesheet' href="~/css/styles.css" type="text/css">
     </head>
     <body>
@@ -48,6 +48,7 @@
         </nav>
         <div class="container">
             @RenderBody()
+            @RenderSection("scripts", required: false)
             @Html.Partial("_Footer")
         </div>
     </body>
