@@ -11,9 +11,13 @@
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.FlavorId)
-    @Html.LabelFor(model => model.FlavorName)
-    @Html.TextBoxFor(model => model.FlavorName)
-    <input type="submit" value="Save">
+    <div class="form-group">
+        @Html.LabelFor(model => model.FlavorName)
+        @Html.TextBoxFor(model => model.FlavorName)
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-default">
+    </div>
 }
 
 <h3>@Html.ActionLink("Show all flavors", "Index", "Flavors")</h3>

@@ -8,9 +8,13 @@
 <hr/>
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.SweetName)
-    @Html.TextBoxFor(model => model.SweetName)
-    <input type="submit" value="Add new sweet" />
+    <div class="form-group">
+        @Html.LabelFor(model => model.SweetName)
+        @Html.TextBoxFor(model => model.SweetName)
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add new sweet" class="btn btn-default" />
+    </div>
 }
 
 <h3>@Html.ActionLink("Show all sweets", "Index")</h3>

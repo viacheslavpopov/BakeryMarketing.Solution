@@ -11,9 +11,13 @@
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.SweetId)
-    @Html.LabelFor(model => model.SweetName)
-    @Html.TextBoxFor(model => model.SweetName)
-    <input type="submit" value="Save">
+    <div class="form-group">
+        @Html.LabelFor(model => model.SweetName)
+        @Html.TextBoxFor(model => model.SweetName)
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-default">
+    </div>
 }
 
 <h3>@Html.ActionLink("Show all sweets", "Index", "Sweets")</h3>

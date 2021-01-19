@@ -21,11 +21,13 @@ else
     <ul>
         @foreach(var join in Model.Sweets)
         {
-            <li><h4>@join.Sweet.SweetName</h4></li>
+            <div class="form-group">
+                <li><h4>@join.Sweet.SweetName</h4></li>
+            </div>
             @using (Html.BeginForm("DeleteJoin", "Sweets"))
             {
                 @Html.Hidden("joinId", @join.FlavorSweetId)
-                <input type="submit" value="Delete"/>
+                <input type="submit" value="Delete" class="btn btn-default"/>
             }
         }
     </ul>

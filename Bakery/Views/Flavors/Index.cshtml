@@ -3,7 +3,6 @@
 }
 
 @using Bakery.Models;
-@using System.Security.Claims
 @model IEnumerable<Bakery.Models.Flavor>
 
 <h2>Flavors</h2>
@@ -22,5 +21,4 @@ else
     <h3>There are no flavors added yet.</h3>
 }
 
-<p>@Html.ActionLink("Add a New Flavor", "Create")</p>
-<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
+<h3>@Html.ActionLink("Add a New Flavor", "Create") || @Html.ActionLink("Back to Home", "Index", "Home")</h3>

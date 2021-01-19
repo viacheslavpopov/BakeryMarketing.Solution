@@ -9,11 +9,13 @@
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.SweetId)
-
-    @Html.Label("Select Flavor:")
-    @Html.DropDownList("FlavorId", "- none -")
-
-    <input type="submit" value="Save">
+    <div class="form-group">
+        @Html.Label("Select Flavor:")
+        @Html.DropDownList("FlavorId", "- none -")
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary">
+    </div>
 }
 
 <h3>@Html.ActionLink("Back to sweet details", "Details", new { id = Model.SweetId })</h3>
