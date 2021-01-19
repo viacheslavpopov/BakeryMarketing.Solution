@@ -64,11 +64,9 @@ namespace Bakery.Controllers
         }
 
         [Authorize]
-        public async Task<ActionResult> Edit(int id)
+        public ActionResult Edit(int id)
         {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var currentUser = await _userManager.FindByIdAsync(userId);
-            var thisSweet = _db.Sweets.Where(entry => entry.User.Id == currentUser.Id).FirstOrDefault(sweets => sweets.SweetId == id);
+            var thisSweet = _db.Sweets.FirstOrDefault(sweets => sweets.SweetId == id);
             if (thisSweet == null)
             {
                 return RedirectToAction("Details", new { id = id});
