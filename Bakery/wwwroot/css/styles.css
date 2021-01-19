@@ -72,25 +72,26 @@ div#footer {
 
 
 .carousel .carousel-inner {
-    height: 200px;
+    height: 550px;
+    width: auto;
     padding-bottom: 20px;
 }
 
 .carousel-item img {
     position: absolute;
-    object-fit: cover;
+    /* object-fit: cover; */
     top: 0;
     left: 0;
-    min-height: 300px;
+    min-height: 400px;
 }
 
-.card .nav-link {
+.card {
     margin: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
     color: #403a3f;
 }
 
-.card .nav-link:hover {
+.card:hover {
     color: #524D59;
 }
