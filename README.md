@@ -9,7 +9,8 @@
   #### By Danielle Thompson
 </div>
 
-#### Preview
+## Preview
+
 [![Splash-Page.png](https://i.postimg.cc/T1k9NHCd/Splash-Page.png)](https://postimg.cc/QKT1Hm2w)
 
 ---
