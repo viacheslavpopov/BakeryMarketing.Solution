@@ -40,6 +40,7 @@ After building a [console app](https://github.com/dani-t-codes/PierresBakery.Sol
 - Get Bootstrap Carousel fully connected to main.js file (see bug report for details).
 - Add an order form for entries.
 - Create a multiple-many relationship between `Savory`, `Sweet`, and `Flavors` (altering the currently `Sweets` page and adding `Savory`). `Flavor` would serve as an ingredient list, more for back-end administrator use to find associated recipes, etc, while `Savory` and `Sweet` would be the two main splash page lists that a customer could log in and order through the order form.
+- Upon registering or logging in, I would have the View return a message to the user if their password didn't meet the login criteria, either upon attempted creation or attempted login.
 
 ## Technologies Used/Required
 
