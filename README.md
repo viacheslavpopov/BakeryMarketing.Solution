@@ -1,13 +1,12 @@
-<div align="center">
+<div class="center">
 
   # Pierre's Bakery, For Customers
 
   #### Independent Project for Epicodus Coding School on Identity in ASP.NET Core MVC, Entity Framework, & Many-to-Many Relationships
 
-  #### Project Began on 1.15.2021.
+  #### Project Began on 1.15.2021. Last Updated 1.18.2021.
 
   #### By Danielle Thompson
-
 </div>
 
 #### Preview
@@ -28,10 +27,6 @@ After building a [console app](https://github.com/dani-t-codes/PierresBakery.Sol
 
 ---
 
-## User Stories
-
-Incoming...
-
 ## Color Theme
 - Eggshell #F2EFE9
 - Warm tan #BFAC95
@@ -41,15 +36,18 @@ Incoming...
 
 ## Stretch Goals
 
-Incoming...
+- Get styling on all text links *not* blue.
+- Get Bootstrap Carousel fully connected to main.js file (see bug report for details).
+- Add an order form for entries.
+- Create a multiple-many relationship between `Savory`, `Sweet`, and `Flavors` (altering the currently `Sweets` page and adding `Savory`). `Flavor` would serve as an ingredient list, more for back-end administrator use to find associated recipes, etc, while `Savory` and `Sweet` would be the two main splash page lists that a customer could log in and order through the order form.
 
 ## Technologies Used/Required
 
 - C# v 7.3
 - .NET Core v 2.2
 - Identity, ASP.NET MVC Core
-- MySQL, MySQL Workbench
-- Entity Framework Core, CRUD, RESTful routing
+- MySQL, MySQL Workbench 8.0
+- Entity Framework Core 2.2.6, CRUD, RESTful routing
 - dotnet script, REPL
 - Razor
 - [SQL Design Planner](https://ondras.zarovi.cz/sql/demo/)
@@ -138,20 +136,30 @@ When the project is opened on your local machine...
 ```
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;database=bakery;uid=root;pwd=YOUR-PASSWORD-HERE;"
+    "DefaultConnection": "Server=localhost;Port=3306;database=danielle_thompson_bakery;uid=root;pwd=YOUR-PASSWORD-HERE;"
     }
 }
 ```
 
 2. Where you see "YOUR-PASSWORD-HERE" is where you put the password you created for your MySQL server. Your server name and port might vary depending on your local system. Check MySQL Workbench Connections to determine if the local host and port number match and adjust as needed.
 
-3. Create a .gitignore file and add the following files & folders to it:
+3. If doing any editing or adding to the project, create a .gitignore file and add the following files & folders to it:
 
 - obj/
 - bin/
 - .vscode/
 - .DS_Store
 - appsettings.json
+
+#### Import Database in MySQL Workbench (filename: danielle_thompson_bakery)
+
+1. Open MySQL Workbench and a Terminal/CMD. Run the command line `mysql -uroot-p[YOUR-PASSWORD]` with your password  in the proper place to open a server.
+2. From the top navigation bar, select 'Server' > 'Data Import'.
+3. Select the option 'Import from Self-Contained File'.
+4. Click the '...' button to navigate to the project file folder Bakery and select danielle_thompson_bakery.sql.
+5. Set 'Default Target Schema' or create new schema.
+6. Select the schema objects you would like to import
+7. To finalize, click 'Start Import'.
 
 #### Import Database with Entity Framework Core
 
@@ -163,7 +171,11 @@ When the project is opened on your local machine...
 
 ## Known bugs
 
-No known bugs yet. But just you wait ...
+(_High Priority_) As of 1.18.2021 at 7:42pm, if an item is deleted with an join entries still attached to it, the remaining join entry pages will throw exceptions. Not sure why this is happening as my "Delete" controllers & MySQL database matches previous projects where the same route path worked. Attempted: nullable join table IDs in migrations, models, & MySQL; updating MySQL's join table under foreign keys to "CASCADE" on delete. Join entry still exists in the join table, so it appears that the save method in controller for joinEntry is not actually removing the joinId from the database.
+
+(_Low Priority_) CSS styling for changing text link colors and hover colors not working.
+
+(_Low Priority_) Bootstrap carousel does not yet click through to the next two images. The browser with the live application was not recognizing Bootstrap's "carousel" method.
 
 [Please report any bugs found here.](https://github.com/dani-t-codes/BakeryMarketing.Solution/issues)
 
