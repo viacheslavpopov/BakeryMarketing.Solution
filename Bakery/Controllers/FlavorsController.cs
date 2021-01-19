@@ -88,11 +88,9 @@ namespace Bakery.Controllers
         }
 
         [Authorize]
-        public async Task<ActionResult> AddSweet(int id)
+        public ActionResult AddSweet(int id)
         {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var currentUser = await _userManager.FindByIdAsync(userId);
-            Flavor thisFlavor = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).FirstOrDefault(flavors => flavors.FlavorId == id);
+            Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);
             if (thisFlavor == null)
             {
                 return RedirectToAction("Details", new { id = id});
@@ -113,12 +111,9 @@ namespace Bakery.Controllers
         }
 
         [Authorize]
-        public async Task<ActionResult> Delete(int id)
+        public ActionResult Delete(int id)
         {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var currentUser = await _userManager.FindByIdAsync(userId);
             Flavor thisFlavor = _db.Flavors
-                .Where(entry => entry.User.Id == currentUser.Id)
                 .Include(flavor => flavor.Sweets)
                 .ThenInclude(join => join.Sweet)
                 .FirstOrDefault(flavors => flavors.FlavorId == id);
@@ -136,6 +131,7 @@ namespace Bakery.Controllers
             {
                 var joinEntry = _db.FlavorSweet.FirstOrDefault(entry => entry.FlavorSweetId == joinId);
                 _db.FlavorSweet.Remove(joinEntry);
+                _db.SaveChanges();
                 var thisFlavor = _db.Flavors
                     .Include(flavor => flavor.Sweets)
                     .ThenInclude(join => join.Sweet)
