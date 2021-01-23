@@ -58,6 +58,9 @@ namespace Bakery.Controllers
             }
             else
             {
+                ModelState.AddModelError(string.Empty,"Incorrect user name or password.");
+                ModelState.AddModelError(nameof(LoginViewModel.Email),"Incorrect UserName");
+                ModelState.AddModelError(nameof(LoginViewModel.Password),"Incorrect password");
                 return View();
             }
         }
