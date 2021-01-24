@@ -1,3 +1,4 @@
+
 <div class="center">
 
   # Pierre's Bakery, For Customers
@@ -7,6 +8,12 @@
   #### Project Began on 1.15.2021. Last Updated 1.18.2021.
 
   #### By Danielle Thompson
+
+  ### Contact
+
+  Find me on [GitHub](https://github.com/dani-t-codes/) |
+  [LinkedIn](https://www.linkedin.com/in/danielle-thompson74/) |
+  Email: danithompson74 [at] gmail.com
 </div>
 
 ## Preview
@@ -14,6 +21,35 @@
 [![Splash-Page.png](https://i.postimg.cc/T1k9NHCd/Splash-Page.png)](https://postimg.cc/QKT1Hm2w)
 
 ---
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+  - [Description](#description)
+  - [Known bugs](#known-bugs)
+  - [Color Theme](#color-theme)
+  - [Stretch Goals](#stretch-goals)
+  - [Technologies Used/Required](#technologies-usedrequired)
+  - [Installation Requirements](#installation-requirements)
+      - [Installing Git](#installing-git)
+          - [For Mac Users](#for-mac-users)
+          - [For Windows Users](#for-windows-users)
+      - [Installing C#, .NET, dotnet script, & MySQL](#installing-c-net-dotnet-script--mysql)
+          - [For Mac](#for-mac)
+          - [For Windows (10+)](#for-windows-10)
+      - [For Mac & Windows Operating Systems](#for-mac--windows-operating-systems)
+      - [Clone or Download the Project](#clone-or-download-the-project)
+        - [To Clone](#to-clone)
+        - [To Download](#to-download)
+        - [.NET Core Commands](#net-core-commands)
+      - [Setting up a Local Database](#setting-up-a-local-database)
+      - [MySQL Password Protection & .gitignore](#mysql-password-protection--gitignore)
+      - [Import Database in MySQL Workbench (filename: danielle_thompson_bakery)](#import-database-in-mysql-workbench-filename-danielle_thompson_bakery)
+      - [Import Database with Entity Framework Core](#import-database-with-entity-framework-core)
+    - [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Description
 
@@ -25,6 +61,20 @@ After building a [console app](https://github.com/dani-t-codes/PierresBakery.Sol
 - The user will be initially navigated to a splash page listing all treats and flavors that can be individually clicked on to see further details.
 
 ![SQL Design Plan](/Bakery/wwwroot/img/SQL_Design_schema.png "Many-to-many Relationship Schema for Flavors & Sweets")
+
+## Known bugs
+
+(_**Resolved**_) As of 1.18.2021 at 7:42pm, if an item is deleted with an join entries still attached to it, the remaining join entry pages will throw exceptions. Not sure why this is happening as my "Delete" controllers & MySQL database matches previous projects where the same route path worked. Attempted: nullable join table IDs in migrations, models, & MySQL; updating MySQL's join table under foreign keys to "CASCADE" on delete. Join entry still exists in the join table, so it appears that the save method in controller for joinEntry is not actually removing the joinId from the database.
+
+Update: As of 1.24.2021 at 3:33pm, the above issue with deleting entries with affiliated join entries is resolved. Changed FlavorSweetId in var JoinEntry to just FlavorId in Flavors Controller and to SweetId in Sweets Controller, and no exceptions are thrown now.
+
+(_Low Priority_) CSS styling for changing text link colors and hover colors not working.
+
+(_**Resolved**_) Bootstrap carousel does not yet click through to the next two images. The browser with the live application was not recognizing Bootstrap's "carousel" method.
+
+(_Medium Priority_) Able to resize Bootstrap carousel images, but now they are not centered in the carousel object. Tried adding center-block to class name of images in Home Index, and margin: auto to CSS stylesheet to no avail yet.
+
+[Report bugs here.](https://github.com/dani-t-codes/BakeryMarketing.Solution/issues)
 
 ---
 
@@ -38,10 +88,9 @@ After building a [console app](https://github.com/dani-t-codes/PierresBakery.Sol
 ## Stretch Goals
 
 - Get styling on all text links *not* blue.
-- Get Bootstrap Carousel fully connected to main.js file (see bug report for details).
 - Add an order form for entries.
 - Create a multiple-many relationship between `Savory`, `Sweet`, and `Flavors` (altering the currently `Sweets` page and adding `Savory`). `Flavor` would serve as an ingredient list, more for back-end administrator use to find associated recipes, etc, while `Savory` and `Sweet` would be the two main splash page lists that a customer could log in and order through the order form.
-- Upon registering or logging in, I would have the View return a message to the user if their password didn't meet the login criteria, either upon attempted creation or attempted login.
+- Upon registering or logging in, I would have the View return a message to the user if their password didn't meet the login criteria, either upon attempted creation or attempted login. Currently, there are some added data annotations and HTML classes added to help with this, but more testing needs to be done to ensure full functionality.
 
 ## Technologies Used/Required
 
@@ -170,21 +219,6 @@ When the project is opened on your local machine...
 3. If any updates to the database are needed with code changes, run `dotnet ef migrations add <NewMigrationNameHere>`, then `dotnet ef database update` to complete the update.
 
 ---
-
-## Known bugs
-
-(_High Priority_) As of 1.18.2021 at 7:42pm, if an item is deleted with an join entries still attached to it, the remaining join entry pages will throw exceptions. Not sure why this is happening as my "Delete" controllers & MySQL database matches previous projects where the same route path worked. Attempted: nullable join table IDs in migrations, models, & MySQL; updating MySQL's join table under foreign keys to "CASCADE" on delete. Join entry still exists in the join table, so it appears that the save method in controller for joinEntry is not actually removing the joinId from the database.
-
-(_Low Priority_) CSS styling for changing text link colors and hover colors not working.
-
-(_Low Priority_) Bootstrap carousel does not yet click through to the next two images. The browser with the live application was not recognizing Bootstrap's "carousel" method.
-
-[Please report any bugs found here.](https://github.com/dani-t-codes/BakeryMarketing.Solution/issues)
-
-### Contact
-
-Find me on [GitHub](https://github.com/dani-t-codes/)
-Email: danithompson74 [at] gmail.com
 
 ### License
 
