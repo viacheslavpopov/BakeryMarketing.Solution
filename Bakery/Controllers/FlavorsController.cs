@@ -125,19 +125,21 @@ namespace Bakery.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id, int joinId)
+        public ActionResult DeleteConfirmed(int id)
         {
-            if (joinId != 0)
+            if (id != 0)
             {
-                var joinEntry = _db.FlavorSweet.FirstOrDefault(entry => entry.FlavorSweetId == joinId);
-                _db.FlavorSweet.Remove(joinEntry);
-                _db.SaveChanges();
-                var thisFlavor = _db.Flavors
-                    .Include(flavor => flavor.Sweets)
-                    .ThenInclude(join => join.Sweet)
-                    .FirstOrDefault(flavors => flavors.FlavorId == id);
-                _db.Flavors.Remove(thisFlavor);
-                _db.SaveChanges();
+                var joinEntry = _db.FlavorSweet.FirstOrDefault(entry => entry.FlavorId == id);
+                if(joinEntry != null)
+                {
+                    _db.FlavorSweet.Remove(joinEntry);
+                    var thisFlavor = _db.Flavors
+                        .Include(flavor => flavor.Sweets)
+                        .ThenInclude(join => join.Sweet)
+                        .FirstOrDefault(flavors => flavors.FlavorId == id);
+                    _db.Flavors.Remove(thisFlavor);
+                    _db.SaveChanges();
+                }
             }
             else
             {
