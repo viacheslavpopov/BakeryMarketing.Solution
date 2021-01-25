@@ -222,4 +222,5 @@ When the project is opened on your local machine...
 
 ### License
 
-_MIT_ Copyright (c) 2021 _*Danielle Thompson*_
+This software is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
+Copyright (c) 2021 _*Danielle Thompson*_
