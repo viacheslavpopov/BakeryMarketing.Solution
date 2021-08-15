@@ -7,13 +7,6 @@
 
   #### Project Began on 1.15.2021. Last Updated 1.18.2021.
 
-  #### By Danielle Thompson
-
-  ### Contact
-
-  Find me on [GitHub](https://github.com/dani-t-codes/) |
-  [LinkedIn](https://www.linkedin.com/in/danielle-thompson74/) |
-  Email: danithompson74 [at] gmail.com
 </div>
 
 ## Preview
