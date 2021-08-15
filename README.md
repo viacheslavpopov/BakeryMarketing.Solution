@@ -141,7 +141,7 @@ Update: As of 1.24.2021 at 3:33pm, the above issue with deleting entries with af
 #### Clone or Download the Project
 
 ##### To Clone
-1. Once you have Git installed on your computer, go to this (GitHub repository)[https://github.com/dani-t-codes/BakeryMarketing.Solution].
+1. Once you have Git installed on your computer, go to this GitHub repository.
 2. Click the Green 'Code' button.
 3. Copy the HTTPS link, and open a Terminal or CMD on your local system.
 4. In the Terminal/CMD, navigate to your Desktop with the command `cd Desktop`.
@@ -212,8 +212,3 @@ When the project is opened on your local machine...
 3. If any updates to the database are needed with code changes, run `dotnet ef migrations add <NewMigrationNameHere>`, then `dotnet ef database update` to complete the update.
 
 ---
-
-### License
-
-This software is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
-Copyright (c) 2021 _*Danielle Thompson*_
